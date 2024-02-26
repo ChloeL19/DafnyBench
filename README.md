@@ -14,3 +14,6 @@ This project aims to create the largest Dafny benchmark to date and set a tone f
 I would really like to incorporate problems from Clover and MBPP-Dafny-- will be in touch with those authors.
 Likely will translate problems from MBPP, HumanEval, Leetcode, and MIPS. May combinatorially combine these problem solutions to create more complex problems and solutions. 
 May also experiment with creating synthetic problems.
+
+## Development Questions
+- [ ] All right to include multiple correct implementations of the same ground truth program? Should we be aiming for this? 
