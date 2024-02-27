@@ -1,3 +1,8 @@
+/*
+HumanEvalX 9
+From a given list of integers, generate a list of rolling maximum element found until given moment in the sequence.
+*/
+
 function isMax(m: int, numbers: seq<int>): bool
 {
     m in numbers &&

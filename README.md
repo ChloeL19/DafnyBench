@@ -3,6 +3,8 @@ This project aims to create the largest Dafny benchmark to date and set a tone f
 
 `programs/` contains the ground-truth implementation of each problem. Each problem has a docstring description and is solved with a dafny method and possibly several helper functions and lemmas. `tasks/` will contain the problem setup of each benchmark task. We will also include evaluation scripts for running models on this benchmark.
 
+See key characteristics of each implemented program in the characteristics.csv file.
+
 ## Category Coding Scheme
 ##### What ability does each problem category test?
 * Category 1: relate formal specification to algorithm implementation (relate objects in logic world to objects in algorithm world)
@@ -18,7 +20,10 @@ May also experiment with creating synthetic problems.
 ## Collect Statistics on all Programs
 - [ ] How many helper functions/methods does the program include?
 - [ ] Does the verification involve extra lemmas?
+- [ ] What is the category of the problem
 
 ## Development Questions
 - [ ] All right to include multiple correct implementations of the same ground truth program? Should we be aiming for this?
 - [ ] Is it okay for ground truth programs to involve multiple helper functions and lemmas? 
+- [ ] Is it okay that some programs require helper functions for their formal specification? Also okay that some implementations of the same docstring may have different formal specifications?
+- [ ] Note: locally some Dafny functions timeout in a way that doesn't happen on other peoples' devices I think. Not sure if this will bias the solutions I produce in any way.

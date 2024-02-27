@@ -1,3 +1,11 @@
+/*
+HumanEvalX 10
+Test if given string is a palindrome.
+Find the shortest palindrome that begins with a supplied string. Algorithm idea is simple: 
+- Find the longest postfix of supplied string that is a palindrome. 
+- Append to the end of the string reverse of a string prefix that comes before the palindromic suffix.
+*/
+
 //TODO: unsure whether to include because times out, but lots of rich helper functions here
 
 function reverse(s: string): string {
