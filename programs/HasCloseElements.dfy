@@ -1,3 +1,8 @@
+/*
+HumanEval 0
+Check if in given list of numbers, are any two numbers closer to each other than given threshold.
+*/
+
 function abs(x: real): real
 {
   if x < 0.0 then -x else x

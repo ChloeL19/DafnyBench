@@ -1,3 +1,8 @@
+/* 
+HumanEval 3
+
+*/
+
 function sum(s: seq<int>, n: nat): int
     requires n <= |s|
 {
