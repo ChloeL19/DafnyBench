@@ -27,3 +27,10 @@ May also experiment with creating synthetic problems.
 - [ ] Is it okay for ground truth programs to involve multiple helper functions and lemmas? 
 - [ ] Is it okay that some programs require helper functions for their formal specification? Also okay that some implementations of the same docstring may have different formal specifications?
 - [ ] Note: locally some Dafny functions timeout in a way that doesn't happen on other peoples' devices I think. Not sure if this will bias the solutions I produce in any way.
+- [ ] Can edits-based methods work with problems that have multiple moving parts? i.e. how to make sure edits only apply to the function that is wrong?
+- [ ] should we expand number of categories to reflect different number of helper functions expected as well?
+
+## Ideas for Tasks
+- Code synthesis and annotations: basically implement an algorithm and a proof for that algorithm given a formal specification of what is wanted
+- Annotations: given an algorithm, re-insert the formal specifications and all helper annotations
+- Docstring to full implementation: given a natural language description of a task, write a formal specification for important properties of this task and also implement an algorithm for it and prove the algorithm upholds the chosen properties.
