@@ -6,7 +6,7 @@ Find the shortest palindrome that begins with a supplied string. Algorithm idea 
 - Append to the end of the string reverse of a string prefix that comes before the palindromic suffix.
 */
 
-//TODO: unsure whether to include because times out, but lots of rich helper functions here
+//TODO: unsure whether to include because times out on Chloe's laptop, but lots of rich helper functions here
 
 function reverse(s: string): string {
     if (|s| == 0) then "" else reverse(s[1..]) + s[0..1]
