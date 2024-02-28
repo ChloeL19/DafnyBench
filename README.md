@@ -1,3 +1,5 @@
+Get setup quickly by chatting here: https://chat.openai.com/g/g-cDrCHBx9Y-repo-research-assistant 
+
 ## Contributions
 This project aims to create the largest Dafny benchmark to date and set a tone for the core types of formal verification challenges required for properly evaluating the abilities of Large Language Models. It will do this by categorizing all presented problems into one of four categories representing the complexity of the formal verification task. 
 
