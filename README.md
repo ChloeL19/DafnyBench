@@ -7,6 +7,9 @@ See key characteristics of each implemented program in the characteristics.csv f
 
 ## Category Coding Scheme
 ##### What ability does each problem category test?
+
+[maybe nice to include diagram of difficulty spectrum, basically 1 should be the easiest and least meaningful/important for safety, and 4 should be the most difficult and more important for real safety]
+
 * Category 1: relate formal specification to algorithm implementation (relate objects in logic world to objects in algorithm world)
 * Category 1.5: Category 1 programs that require multiple helper functions and lemmas to prove
 * Category 2: relate a logical property (which can be a subset of a full formal spec) to an algorithm implementation or a specification
@@ -35,3 +38,7 @@ May also experiment with creating synthetic problems.
 - Code synthesis and annotations: basically implement an algorithm and a proof for that algorithm given a formal specification of what is wanted
 - Annotations: given an algorithm, re-insert the formal specifications and all helper annotations
 - Docstring to full implementation: given a natural language description of a task, write a formal specification for important properties of this task and also implement an algorithm for it and prove the algorithm upholds the chosen properties.
+
+## Ideas for Future Tasks
+- Synthesis of formal specs from natural language
+- Synthesis of natural language from formal specs

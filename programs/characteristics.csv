@@ -1,1 +1,13 @@
-program_name, 
+program_name, category, num_helper_functions, num_lemmas, domain
+BelowZero_variant01.dfy, 1.0, 0.0, 0.0, floats
+BelowZero.dfy, 1.5, 1.0, 1.0, floats
+BinaryAddition.dfy, 4.0, 8.0, 0.0, binary strings or bitvectors
+DoAlgebra.dfy, 2.0, 1.0, 0.0, floats
+FindMaxWord.dfy, 1.5, 1.0, 0.0, strings
+HasCloseElements_variant01.dfy, 1.0, 0.0, 0.0, floats
+HasCloseElements.dfy, 1.5, 1.0, 0.0, floats
+intersperse.dfy, 1.0, 0.0, 0.0, floats
+MakePalindrome.dfy, 2.0, 2.0, 7.0, strings
+MeanAbsoluteDeviationNonnegative.dfy, 1.5, 4.0, 3.0, floats
+RollingMax.dfy, 1.5, 2.0, 0.0, floats
+Solve.dfy, 1.5, 5.0, 0.0, strings
