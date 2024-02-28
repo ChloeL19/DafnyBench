@@ -8,6 +8,7 @@ See key characteristics of each implemented program in the characteristics.csv f
 ## Category Coding Scheme
 ##### What ability does each problem category test?
 * Category 1: relate formal specification to algorithm implementation (relate objects in logic world to objects in algorithm world)
+* Category 1.5: Category 1 programs that require multiple helper functions and lemmas to prove
 * Category 2: relate a logical property (which can be a subset of a full formal spec) to an algorithm implementation or a specification
 * Category 3: relate two separate logical specifications to each other
 * Category 4: some multi-step combination of all of the above
