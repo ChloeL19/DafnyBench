@@ -3,7 +3,7 @@ This project aims to create the largest Dafny benchmark to date and set a tone f
 
 `programs/` contains the ground-truth implementation of each problem. Each problem has a docstring description and is solved with a dafny method and possibly several helper functions and lemmas. `tasks/` will contain the problem setup of each benchmark task. We will also include evaluation scripts for running models on this benchmark.
 
-See key characteristics of each implemented program in the characteristics.csv file.
+See key characteristics of each implemented program in the `programs/characteristics.csv` file.
 
 ## Category Coding Scheme
 ##### What ability does each problem category test?
