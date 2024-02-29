@@ -38,9 +38,16 @@ May also experiment with creating synthetic problems.
 
 ## Ideas for Tasks
 - Code synthesis and annotations: basically implement an algorithm and a proof for that algorithm given a formal specification of what is wanted
-- Annotations: given an algorithm, re-insert the formal specifications and all helper annotations
+- Annotations: given an algorithm, re-insert the formal specifications and all helper annotations. can do marked an unmarked versions of this (marked version is slightly easier because LLM does not need to decide where to put the compiler hints, only which compiler hints to place)
 - Docstring to full implementation: given a natural language description of a task, write a formal specification for important properties of this task and also implement an algorithm for it and prove the algorithm upholds the chosen properties.
 
 ## Ideas for Future Tasks
 - Synthesis of formal specs from natural language
 - Synthesis of natural language from formal specs
+
+## Baselines
+I will run baselines with GPT4, code-phind-llama, GPT4 + reflection, code-phind-llama + reflection, VMCTS, VMCTS + DPO, VMCTS + edits
+
+For now rest assured that GPT4 with reflection can solve at least one problem (DoAlgebra.dfy):
+https://chat.openai.com/share/9a250315-1ef2-460b-9fd2-a941e7e64141
+
