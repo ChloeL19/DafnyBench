@@ -37,6 +37,7 @@ May also experiment with creating synthetic problems.
 - [ ] should we expand number of categories to reflect different number of helper functions expected as well?
 
 ## Ideas for Tasks
+(Idea: include graphs of model baselines on each task)
 - Code synthesis and annotations: basically implement an algorithm and a proof for that algorithm given a formal specification of what is wanted
 - Annotations: given an algorithm, re-insert the formal specifications and all helper annotations. can do marked an unmarked versions of this (marked version is slightly easier because LLM does not need to decide where to put the compiler hints, only which compiler hints to place)
 - Docstring to full implementation: given a natural language description of a task, write a formal specification for important properties of this task and also implement an algorithm for it and prove the algorithm upholds the chosen properties.
