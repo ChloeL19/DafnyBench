@@ -1,13 +1,13 @@
-program_name, category, num_helper_functions, num_lemmas, domain, source, verify_without_hints
-BelowZero_variant01.dfy, 1.0, 0.0, 0.0, floats, Clover, TODO
-BelowZero.dfy, 1.5, 1.0, 1.0, floats, HumanEvalX, TODO
-BinaryAddition.dfy, 4.0, 8.0, 0.0, binary strings or bitvectors, MIPS, TODO
-DoAlgebra.dfy, 2.0, 1.0, 0.0, floats, HumanEvalX, TODO
-FindMaxWord.dfy, 1.5, 1.0, 0.0, strings, HumanEvalX, TODO
-HasCloseElements_variant01.dfy, 1.0, 0.0, 0.0, floats, Clover, TODO
-HasCloseElements.dfy, 1.5, 1.0, 0.0, floats, HumanEvalX, TODO
-intersperse.dfy, 1.0, 0.0, 0.0, floats, HumanEvalX, TODO
-MakePalindrome.dfy, 2.0, 2.0, 7.0, strings, HumanEvalX, TODO
-MeanAbsoluteDeviationNonnegative.dfy, 1.5, 4.0, 3.0, floats, HumanEvalX, TODO
-RollingMax.dfy, 1.5, 2.0, 0.0, floats, HumanEvalX, TODO
-Solve.dfy, 1.5, 5.0, 0.0, strings, HumanEvalX, TODO
+program_name, num_helper_functions, num_lemmas, domain, source, verify_without_hints
+BelowZero_variant01.dfy, 0.0, 0.0, floats, Clover, TODO
+BelowZero.dfy, 1.0, 1.0, floats, HumanEvalX, TODO
+BinaryAddition.dfy, 8.0, 0.0, binary strings or bitvectors, MIPS, TODO
+DoAlgebra.dfy, 1.0, 0.0, floats, HumanEvalX, TODO
+FindMaxWord.dfy, 1.0, 0.0, strings, HumanEvalX, TODO
+HasCloseElements_variant01.dfy, 0.0, 0.0, floats, Clover, TODO
+HasCloseElements.dfy, 1.0, 0.0, floats, HumanEvalX, TODO
+intersperse.dfy, 0.0, 0.0, floats, HumanEvalX, TODO
+MakePalindrome.dfy, 2.0, 7.0, strings, HumanEvalX, TODO
+MeanAbsoluteDeviationNonnegative.dfy, 4.0, 3.0, floats, HumanEvalX, TODO
+RollingMax.dfy, 2.0, 0.0, floats, HumanEvalX, TODO
+Solve.dfy, 5.0, 0.0, strings, HumanEvalX, TODO
