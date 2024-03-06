@@ -105,7 +105,7 @@ ensures is_palindrome(s + reverse(s[0..i]))
     assert p == rp;
 }
 
-method make_palindrome(s: string) returns (result: string)
+method MakePalindrome(s: string) returns (result: string)
     ensures is_palindrome(result)
 {
     for i := 0 to |s|

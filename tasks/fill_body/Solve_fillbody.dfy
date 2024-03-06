@@ -30,7 +30,14 @@ function isReverse(s: string, s_prime: string): bool{
   (forall si :: 0 <= si < |s|/2 ==> s_prime[|s| - si - 1] == s[si])
 }
 
-method solve(s: string) returns (result: string)
+method Reverse(original: seq<char>) returns (reversed: seq<char>)
+  ensures |reversed| == |original| 
+  ensures forall i :: 0 <= i < |original| ==> reversed[i] == original[|original| - 1 - i] 
+{
+  /* TODO */
+}
+
+method Solve(s: string) returns (result: string)
   ensures |result| == |s| 
   ensures !NoLetters(s, |s|) ==> forall i :: 0 <= i < |s| && IsLetter(s[i]) ==> result[i] == ToggleCase(s[i])
   ensures !NoLetters(s, |s|) ==> forall i :: 0 <= i < |s| && !IsLetter(s[i]) ==> result[i] == s[i] 

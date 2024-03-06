@@ -9,7 +9,7 @@ list minus one. Operand is a list of of non-negative integers. Operator list has
 and operand list has at least two operands.
 */
 
-method do_algebra(operators: seq<char>, operands: seq<int>) returns (result: int)
+method DoAlgebra(operators: seq<char>, operands: seq<int>) returns (result: int)
   requires operators != [] && operands != [] && |operators| + 1 == |operands|
   requires forall i :: 0 <= i < |operands| ==> operands[i] >= 0
   requires forall op :: op in operators ==> op == '+' || op == '-' || op == '*' || op == '/' || op == '^'

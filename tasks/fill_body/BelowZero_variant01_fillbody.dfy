@@ -5,7 +5,7 @@ Your task is to detect if at any point the balance of account falls below zero, 
 should return True. Otherwise it should return False.
 */
 
-method below_zero(operations: seq<int>) returns (s:array<int>, result:bool)
+method BelowZero_variant01(operations: seq<int>) returns (s:array<int>, result:bool)
   ensures s.Length == |operations| + 1
   ensures s[0]==0
   ensures forall i :: 0 <= i < s.Length-1 ==> s[i+1]==s[i]+operations[i]

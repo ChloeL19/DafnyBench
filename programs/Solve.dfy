@@ -48,8 +48,7 @@ method Reverse(original: seq<char>) returns (reversed: seq<char>)
   }
 }
 
-
-method solve(s: string) returns (result: string)
+method Solve(s: string) returns (result: string)
   ensures |result| == |s| 
   ensures !NoLetters(s, |s|) ==> forall i :: 0 <= i < |s| && IsLetter(s[i]) ==> result[i] == ToggleCase(s[i])
   ensures !NoLetters(s, |s|) ==> forall i :: 0 <= i < |s| && !IsLetter(s[i]) ==> result[i] == s[i] 

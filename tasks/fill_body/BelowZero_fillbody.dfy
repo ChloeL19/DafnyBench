@@ -20,7 +20,7 @@ lemma sum_plus(s: seq<int>, i: nat)
 {
 }
 
-method below_zero(ops: seq<int>) returns (result: bool)
+method BelowZero(ops: seq<int>) returns (result: bool)
     ensures result <==> exists n: nat :: n <= |ops| && sum(ops, n) < 0
 {
     /* TODO */

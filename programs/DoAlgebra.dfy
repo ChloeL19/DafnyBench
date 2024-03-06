@@ -18,7 +18,7 @@ function pow(base: int, exponent: int): int
   else base * pow(base, exponent - 1)
 }
 
-method do_algebra(operators: seq<char>, operands: seq<int>) returns (result: int)
+method DoAlgebra(operators: seq<char>, operands: seq<int>) returns (result: int)
   requires operators != [] && operands != [] && |operators| + 1 == |operands|
   requires forall i :: 0 <= i < |operands| ==> operands[i] >= 0
   requires forall op :: op in operators ==> op == '+' || op == '-' || op == '*' || op == '/' || op == '^'

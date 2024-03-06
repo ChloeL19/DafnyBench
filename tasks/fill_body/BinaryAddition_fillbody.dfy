@@ -41,6 +41,13 @@ function ArrayToBv10Helper(arr: array<bool>, index: nat): bv10
         (bit << index) + ArrayToBv10Helper(arr, index - 1)
 }
 
+method ArrayToSequence(arr: array<bool>) returns (res: seq<bool>) // Converts boolean array to boolean sequence
+    ensures |res| == arr.Length
+    ensures forall k :: 0 <= k < arr.Length ==> res[k] == arr[k]
+{
+    /* TODO */
+}
+
 function isBitSet(x: bv10, bitIndex: nat): bool
     requires bitIndex < 10
     ensures isBitSet(x, bitIndex) <==> (x & (1 << bitIndex)) != 0
@@ -55,6 +62,14 @@ function Bv10ToSeq(x: bv10): seq<bool> // Converts bitvector to boolean sequence
     [isBitSet(x, 0), isBitSet(x, 1), isBitSet(x, 2), isBitSet(x, 3),
     isBitSet(x, 4), isBitSet(x, 5), isBitSet(x, 6), isBitSet(x, 7),
     isBitSet(x, 8), isBitSet(x, 9)]
+}
+
+function BoolToInt(a: bool): int {
+    /* TODO */
+}
+
+function XOR(a: bool, b: bool): bool {
+    /* TODO */
 }
 
 function BitAddition(s: array<bool>, t: array<bool>): seq<bool> // Performs traditional bit addition
@@ -75,5 +90,5 @@ method BinaryAddition(s: array<bool>, t: array<bool>) returns (sresult: seq<bool
                     && ((s[i-1] || t[i-1]) && !(sresult[i-1] && (s[i-1] != t[i-1])))))
     ensures BitAddition(s, t) == sresult // Verification of correctness
 {
-   /* TODO */
+    /* TODO */
 }

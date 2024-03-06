@@ -58,7 +58,7 @@ lemma mean_nonnegative(numbers: seq<real>)
     sum_nonnegative(numbers);
 }
 
-lemma mean_absolute_deviation_nonnegative(numbers: seq<real>)
+lemma MeanAbsoluteDeviationNonnegative(numbers: seq<real>)
     requires numbers != []
     ensures mean_absolute_deviation(numbers) >= 0.0
 {

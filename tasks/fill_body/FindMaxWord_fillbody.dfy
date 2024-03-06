@@ -9,7 +9,7 @@ function numUniqueChars(s: string): nat {
     |set c | c in s|
 }
 
-method findMax(words: seq<string>) returns (maxWord: string)
+method FindMaxWord(words: seq<string>) returns (maxWord: string)
     ensures maxWord in words || |words| == 0
     ensures forall w :: w in words ==> numUniqueChars(w) <= numUniqueChars(maxWord)
 {
