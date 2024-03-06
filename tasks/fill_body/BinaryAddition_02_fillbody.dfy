@@ -17,15 +17,13 @@ def f(s,t):
         y = a
         ys.append(y)
     return ys
-
-Please prove using Dafny that the python program above implements the sum of two length10 bitvectors in Dafny.
 */
 
 function ArrayToBv10(arr: array<bool>): bv10 // Converts boolean array to bitvector
     reads arr
     requires arr.Length == 10
 {
-    /* TODO */
+    ArrayToBv10Helper(arr, arr.Length - 1)
 }
 
 function ArrayToBv10Helper(arr: array<bool>, index: nat): bv10
@@ -36,7 +34,11 @@ function ArrayToBv10Helper(arr: array<bool>, index: nat): bv10
     ensures forall i :: 0 <= i < index ==> ((ArrayToBv10Helper(arr, i) >> i) & 1) == (if arr
         [i] then 1 else 0)
 {
-    /* TODO */
+    if index == 0 then
+        (if arr[0] then 1 else 0) as bv10
+    else
+        var bit: bv10 := if arr[index] then 1 as bv10 else 0 as bv10;
+        (bit << index) + ArrayToBv10Helper(arr, index - 1)
 }
 
 method ArrayToSequence(arr: array<bool>) returns (res: seq<bool>) // Converts boolean array to boolean sequence
@@ -50,14 +52,16 @@ function isBitSet(x: bv10, bitIndex: nat): bool
     requires bitIndex < 10
     ensures isBitSet(x, bitIndex) <==> (x & (1 << bitIndex)) != 0
 {
-    /* TODO */
+    (x & (1 << bitIndex)) != 0
 }
 
 function Bv10ToSeq(x: bv10): seq<bool> // Converts bitvector to boolean sequence
     ensures |Bv10ToSeq(x)| == 10
     ensures forall i: nat :: 0 <= i < 10 ==> Bv10ToSeq(x)[i] == isBitSet(x, i)
 {
-    /* TODO */
+    [isBitSet(x, 0), isBitSet(x, 1), isBitSet(x, 2), isBitSet(x, 3),
+    isBitSet(x, 4), isBitSet(x, 5), isBitSet(x, 6), isBitSet(x, 7),
+    isBitSet(x, 8), isBitSet(x, 9)]
 }
 
 function BoolToInt(a: bool): int {
@@ -73,13 +77,17 @@ function BitAddition(s: array<bool>, t: array<bool>): seq<bool> // Performs trad
     reads t
     requires s.Length == 10 && t.Length == 10
 {
-    /* TODO */
+    var a: bv10 := ArrayToBv10(s);
+    var b: bv10 := ArrayToBv10(t);
+    var c: bv10 := a + b;
+    Bv10ToSeq(c)
 }
 
-method BinaryAddition_02(s: array<bool>, t: array<bool>) returns (sresult: seq<bool>) // Generated program for bit addition
+method BinaryAddition(s: array<bool>, t: array<bool>) returns (sresult: seq<bool>) // Generated program for bit addition
     requires s.Length == 10 && t.Length == 10
     ensures |sresult| == 10
-    ensures forall i :: 0 <= i && i < |sresult| ==> sresult[i] == ((s[i] != t[i]) != (i > 0 && ((s[i-1] || t[i-1]) && !(sresult[i-1] && (s[i-1] != t[i-1])))))
+    ensures forall i :: 0 <= i && i < |sresult| ==> sresult[i] == ((s[i] != t[i]) != (i > 0
+                    && ((s[i-1] || t[i-1]) && !(sresult[i-1] && (s[i-1] != t[i-1])))))
     ensures BitAddition(s, t) == sresult // Verification of correctness
 {
     /* TODO */

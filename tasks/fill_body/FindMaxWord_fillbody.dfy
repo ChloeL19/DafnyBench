@@ -5,6 +5,10 @@ Return the word with maximum number of unique characters. If multiple strings ha
 characters, return the one which comes first in lexicographical order.
 */
 
+function numUniqueChars(s: string): nat {
+    |set c | c in s|
+}
+
 method findMax(words: seq<string>) returns (maxWord: string)
     ensures maxWord in words || |words| == 0
     ensures forall w :: w in words ==> numUniqueChars(w) <= numUniqueChars(maxWord)
