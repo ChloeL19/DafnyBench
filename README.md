@@ -1,12 +1,21 @@
 Get setup quickly by chatting here: https://chat.openai.com/g/g-cDrCHBx9Y-repo-research-assistant 
 
 ## Contributions
-This project aims to create the largest Dafny benchmark to date and set a tone for the core types of formal verification challenges required for properly evaluating the abilities of Large Language Models. It will do this by categorizing all presented problems into one of four categories representing the complexity of the formal verification task. 
+This project aims to create the largest Dafny benchmark (with >1000 different Dafny challenges) to date and set a tone for the core types of formal verification challenges required for properly evaluating the abilities of Large Language Models. 
 
-`programs/` contains the ground-truth implementation of each problem. Each problem has a docstring description and is solved with a dafny method and possibly several helper functions and lemmas. `tasks/` will contain the problem setup of each benchmark task. We will also include evaluation scripts for running models on this benchmark.
+`programs/` contains ground-truth implementations of the benchmark problems (we have ground truth implementations for >1000 of the problems in this benchmark). Each problem has a docstring description and is solved with a dafny method and possibly several helper functions and lemmas. `tasks/` will contain the problem setup of each benchmark task. We will also include `evaluation` scripts and `loader` scripts for running models on these benchmark tasks. (These are coming later.)
 
 See key characteristics of each implemented program in the `programs/characteristics.csv` file.
 
+## Benchmark Tasks
+* *fill_body*: fill in missing method and function bodies in a file of Dafny code. We have X problems under this task.
+The `fill_body` task has problems that fall into two main categories:
+    * Category 1: fill in the body of a single core method based on a self-contained formal specification and docstring.
+    * Category 2: fill in the body of a core method and possibly one or more helper functions/methods. the formal specification for the core method(s) may rely on helper functions and/or lemmas. this serves as a more realistic multi-step type of formal verification task.
+
+* *fill_annotations*: fill in the missing compiler hints (excluding the formal specification) for code in a Dafny file. We have X problems for this task.
+
+# WIP NOTES:
 ## Category Coding Scheme
 ##### What ability does each problem category test?
 
