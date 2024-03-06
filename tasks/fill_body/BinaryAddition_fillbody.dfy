@@ -68,7 +68,7 @@ function BitAddition(s: array<bool>, t: array<bool>): seq<bool> // Performs trad
     Bv10ToSeq(c)
 }
 
-method f(s: array<bool>, t: array<bool>) returns (sresult: seq<bool>) // Generated program for bit addition
+method BinaryAddition(s: array<bool>, t: array<bool>) returns (sresult: seq<bool>) // Generated program for bit addition
     requires s.Length == 10 && t.Length == 10
     ensures |sresult| == 10
     ensures forall i :: 0 <= i && i < |sresult| ==> sresult[i] == ((s[i] != t[i]) != (i > 0
