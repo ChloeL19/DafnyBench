@@ -15,6 +15,26 @@ The `fill_body` task has problems that fall into two main categories:
 
 * *fill_annotations*: fill in the missing compiler hints (excluding the formal specification) for code in a Dafny file. We have X problems for this task.
 
+## Citations
+
+@misc{sun2023clover,
+      title={Clover: Closed-Loop Verifiable Code Generation}, 
+      author={Chuyue Sun and Ying Sheng and Oded Padon and Clark Barrett},
+      year={2023},
+      eprint={2310.17807},
+      archivePrefix={arXiv},
+      primaryClass={cs.SE}
+}
+
+@misc{brandfonbrener2024verified,
+      title={Verified Multi-Step Synthesis using Large Language Models and Monte Carlo Tree Search}, 
+      author={David Brandfonbrener and Sibi Raja and Tarun Prasad and Chloe Loughridge and Jianang Yang and Simon Henniger and William E. Byrd and Robert Zinkov and Nada Amin},
+      year={2024},
+      eprint={2402.08147},
+      archivePrefix={arXiv},
+      primaryClass={cs.SE}
+}
+
 # WIP NOTES:
 ## Category Coding Scheme
 ##### What ability does each problem category test?
