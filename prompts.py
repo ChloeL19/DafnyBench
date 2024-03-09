@@ -32,8 +32,9 @@ def prompt_fillbody(text):
     # NOTE: you are welcome to do fancier things to modify what the models sees of the task from the benchmark.
     # For the default approach used to initially compute the baselines reported in this benchmark, we prompt in the following way
 
-    return f'In Dafny, fill in the bodies of the functions, lemmas, or methods labeled with /* TODO */. This is the code to\
-            complete:\n```dafny\n{text}\n```\nNow it is your turn:\n```dafny\n{extract_function_definition(text)}'
+    return f"""In Dafny, fill in the bodies of the functions, lemmas, or methods labeled with /* TODO */. This is the code to
+complete:\n```dafny\n{text}\n```\nNow it is your turn:\n
+```dafny\n{extract_function_definition(text)}""".rstrip() + "\n\t"
 
 def prompt_fillanno(text):
     '''
