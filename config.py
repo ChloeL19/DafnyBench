@@ -1,0 +1,4 @@
+TEST_PROMPTS = []
+TRAIN_PROMPTS = []
+TASK = "fill_body"
+VERBOSITY = True
