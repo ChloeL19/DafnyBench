@@ -15,9 +15,12 @@ Likewise, each task directory has a `characteristics.csv` file describing the ch
 Within `Baselines`, the `experiment.py` script and associated `cmdline` arguments allow researchers to run the following baseline algorithms on DafnyBench out of the box:
 * Strict sampling from `code-phind-llama`
 * Strict sampling from `GPT3.5`
+* Sampling with reflection from `GPT3.5`
 * Strict sampling from `GPT4`
 * Strict sampling from `Claude 3`
 * Verified monte-carlo tree search sampling with `code-phind-llama`, dubbed `VMCTS`
+
+Each strategy defaults to running for 10 minutes on each benchmark task example.
 
 ## Getting Started
 Install Dafny locally and the corresponding z3 solver. Make sure these are in your PYTHONPATH.
