@@ -30,9 +30,15 @@ def get_formal_spec(input_string):
             break
 
     # Remove any curly braces at the end that have whitespace between them
-    output_string = re.sub(r'\{\s+\}$', '', output_string)
-
-    return output_string.strip()
+    output_string = re.sub(r'\{\s+\}$', '{\n', output_string)
+    
+    # Split the output string into chunks based on empty lines
+    chunks = re.split(r'\n\s*\n', output_string)
+    
+    # Trim whitespace from each chunk and remove empty chunks
+    chunks = [chunk.strip() for chunk in chunks if chunk.strip()]
+    
+    return chunks
 
 def example_iterator(base_path="tasks/", task_name="fill_body"):
     assert task_name in ["fill_body", "fill_annotations"]
