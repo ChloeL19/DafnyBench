@@ -7,6 +7,11 @@ This project aims to create the largest Dafny benchmark (with >1000 different Da
 
 See key characteristics of each implemented program in the `programs/characteristics.csv` file.
 
+## Getting Started
+
+[instructions on setting up Dafny locally]
+
+
 ## Benchmark Tasks
 * *fill_body*: fill in missing method and function bodies in a file of Dafny code. We have X problems under this task.
 The `fill_body` task has problems that fall into two main categories:
