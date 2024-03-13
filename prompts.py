@@ -1,6 +1,6 @@
 import re
 
-expansion_count = 40
+expansion_count = None
 min_lines = 5
 max_depth = 100
 

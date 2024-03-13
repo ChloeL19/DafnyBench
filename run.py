@@ -64,7 +64,7 @@ def main(mins_timeout = None, prompt = "Do something spicy", formal_spec = []):
     montecarlo = MonteCarlo(Node(prompt), mins_timeout)
     def child_finder(node, montecarlo):
         return child_finder_helper(node, montecarlo, formal_spec = formal_spec)
-    montecarlo.child_finder = child_finder #NOTE: can I curry like this?
+    montecarlo.child_finder = child_finder 
 
     montecarlo.simulate(expansion_count)
 

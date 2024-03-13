@@ -1,4 +1,4 @@
-TEST_PROMPTS = ["BelowZero", "BelowZero_variant01", "DoAlgebra"]
-TRAIN_PROMPTS = []
+TEST_PROMPTS = None
+TRAIN_PROMPTS = None
 TASK = "fill_body"
 VERBOSITY = True

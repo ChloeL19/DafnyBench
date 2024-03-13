@@ -108,13 +108,13 @@ def calculateScoreHelper_whole(msg: str) -> (Optional[float], Optional[str]):
         try:
             first = log[log.index("ex.dfy(") + 7 :]
         except ValueError:
-            pass
+            continue
         num_line_first = int(first[0 : first.index(",")])
         err = first[first.index(":") :]
         try:
             err = err[: err.index("ex.dfy")]
         except ValueError:
-            pass
+            continue
     # return error sign only if all attempts fail
     return -1.0, err
 
