@@ -1,5 +1,8 @@
 import re
 
+expansion_count = 40
+min_lines = 5
+
 def extract_function_definition(s):
     """
     Extracts the function/method definition part of the string that precedes the first '/* TODO */' comment.

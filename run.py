@@ -1,17 +1,19 @@
-from montecarlo.node import Node
-from montecarlo.montecarlo import MonteCarlo
+import importlib
+Node = importlib.import_module("llm-verified-with-monte-carlo-tree-search.montecarlo.node")
+MonteCarlo = importlib.import_module("llm-verified-with-monte-carlo-tree-search.montecarlo.montecarlo")
 
-from lang import can_be_solution
-from lang import score_func_whole as uncached_score_func #NOTE: score_func_whole is generalized score_func
+from evaluate import can_be_solution
+from evaluate import score_func_whole as uncached_score_func #NOTE: score_func_whole is generalized score_func
 
-from common_cache import create_cached_func
+create_cached_func = importlib.import_module("llm-verified-with-monte-carlo-tree-search.common_cache").create_cached_func
 score_func, cache_stats, reset_cache = create_cached_func(uncached_score_func)
-from common_interactive import diffprompt
 
-from prompts import prompt, expansion_count, min_lines, check_func
-from common import limit_depth, max_completion_depth
-from common_stats import stats
+from prompts import expansion_count
+limit_depth = importlib.import_module("llm-verified-with-monte-carlo-tree-search.common").limit_depth
+max_completion_depth = importlib.import_module("llm-verified-with-monte-carlo-tree-search.common").max_completion_depth
+stats = importlib.import_module("llm-verified-with-monte-carlo-tree-search.common_stats").stats
 
+llm = importlib.import_module("llm-verified-with-monte-carlo-tree-search.llm")
 import llm
 
 import tiktoken
@@ -22,30 +24,30 @@ def num_tokens_from_string(string: str, encoding_name: str = "cl100k_base") -> i
     num_tokens = len(encoding.encode(string))
     return num_tokens
 
-def generate_complete(text, montecarlo, current_completion_depth=1):
+def generate_complete(text, montecarlo, current_completion_depth=1, formal_spec=[]):
     if current_completion_depth >= max_completion_depth:
         return None
     prev = text
     texts = llm.generate(text, 1)
     text = texts[0]
     score = score_func(text)
-
-        if score is not None:
+    if score is not None:
         if score < 0:
             return None
         else:
-            if can_be_solution(text, min_lines, check_func):
-                montecarlo.solution = text
+            is_sol, sol = can_be_solution(text, formal_spec)
+            if is_sol:
+                montecarlo.solution = sol
             return text
     else:
-        return generate_complete(text, montecarlo, current_completion_depth + 1)
+        return generate_complete(text, montecarlo, current_completion_depth + 1, formal_spec)
 
 
-def child_finder(node, montecarlo):
+def child_finder(node, montecarlo, formal_spec=[]):
     if limit_depth(node):
         return
 
-    text = generate_complete(node.state, montecarlo)
+    text = generate_complete(node.state, montecarlo, formal_spec)
     if text is None:
         node.update_win_value(-1)
     else:
@@ -58,9 +60,9 @@ def child_finder(node, montecarlo):
         node.add_child(child)
         child.update_policy_value(0.2)
 
-def main(mins_timeout = None, prompt = prompt):
+def main(mins_timeout = None, prompt = prompt, formal_spec = []):
     montecarlo = MonteCarlo(Node(prompt), mins_timeout)
-    montecarlo.child_finder = child_finder
+    montecarlo.child_finder = child_finder(formal_spec=formal_spec) #NOTE: can I curry like this?
 
     montecarlo.simulate(expansion_count)
 
