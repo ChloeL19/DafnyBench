@@ -14,7 +14,6 @@ max_completion_depth = importlib.import_module("llm-verified-with-monte-carlo-tr
 stats = importlib.import_module("llm-verified-with-monte-carlo-tree-search.common_stats").stats
 
 llm = importlib.import_module("llm-verified-with-monte-carlo-tree-search.llm")
-import llm
 
 import tiktoken
 

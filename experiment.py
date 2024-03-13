@@ -4,6 +4,7 @@ from loader import example_iterator
 from config import TRAIN_PROMPTS, TEST_PROMPTS
 
 experiment_name = args.experiment_name
+#experiment_name = "run.py"
 
 match experiment_name:
     case "run.py":

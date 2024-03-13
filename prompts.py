@@ -2,6 +2,7 @@ import re
 
 expansion_count = 40
 min_lines = 5
+max_depth = 100
 
 def extract_function_definition(s):
     """
