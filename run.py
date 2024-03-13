@@ -1,6 +1,6 @@
 import importlib
-Node = importlib.import_module("llm-verified-with-monte-carlo-tree-search.montecarlo.node")
-MonteCarlo = importlib.import_module("llm-verified-with-monte-carlo-tree-search.montecarlo.montecarlo")
+Node = importlib.import_module("llm-verified-with-monte-carlo-tree-search.montecarlo.node").Node
+MonteCarlo = importlib.import_module("llm-verified-with-monte-carlo-tree-search.montecarlo.montecarlo").MonteCarlo
 
 from evaluate import can_be_solution
 from evaluate import score_func_whole as uncached_score_func #NOTE: score_func_whole is generalized score_func
@@ -24,6 +24,8 @@ def num_tokens_from_string(string: str, encoding_name: str = "cl100k_base") -> i
     return num_tokens
 
 def generate_complete(text, montecarlo, current_completion_depth=1, formal_spec=[]):
+    print(f"CURRENT COMPLETION DEPTH: {current_completion_depth}, {type(current_completion_depth)}")
+    print(f"MAX COMPLETION DEPTH: {max_completion_depth}, {type(max_completion_depth)}")
     if current_completion_depth >= max_completion_depth:
         return None
     prev = text
@@ -41,12 +43,11 @@ def generate_complete(text, montecarlo, current_completion_depth=1, formal_spec=
     else:
         return generate_complete(text, montecarlo, current_completion_depth + 1, formal_spec)
 
-
-def child_finder(node, montecarlo, formal_spec=[]):
+def child_finder_helper(node, montecarlo, formal_spec=[]):
     if limit_depth(node):
         return
 
-    text = generate_complete(node.state, montecarlo, formal_spec)
+    text = generate_complete(node.state, montecarlo, formal_spec=formal_spec)
     if text is None:
         node.update_win_value(-1)
     else:
@@ -59,9 +60,11 @@ def child_finder(node, montecarlo, formal_spec=[]):
         node.add_child(child)
         child.update_policy_value(0.2)
 
-def main(mins_timeout = None, prompt = prompt, formal_spec = []):
+def main(mins_timeout = None, prompt = "Do something spicy", formal_spec = []):
     montecarlo = MonteCarlo(Node(prompt), mins_timeout)
-    montecarlo.child_finder = child_finder(formal_spec=formal_spec) #NOTE: can I curry like this?
+    def child_finder(node, montecarlo):
+        return child_finder_helper(node, montecarlo, formal_spec = formal_spec)
+    montecarlo.child_finder = child_finder #NOTE: can I curry like this?
 
     montecarlo.simulate(expansion_count)
 
