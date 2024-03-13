@@ -155,22 +155,13 @@ def can_be_solution(msg: str, formal_spec: List[str]) -> (bool, str):
     formal_spec = [re.sub(r'\s', '', s) for s in formal_spec]
     for candidate in candidates:
         uncovered_spec = formal_spec
-        print("THE FORMAL SPEC:")
-        print(formal_spec)
-        print("LENGTH OF FORMAL SPEC:")
-        print(len(formal_spec))
         if candidate == "":
             continue
         r = checkDafny(candidate)
         if r["status"] == 0: # if the candidate verifies
             while len(uncovered_spec) > 0:
                 spec = uncovered_spec[0]
-                print("THE SPEC:")
-                print(spec)
-                print("THE CANDIDATE:")
-                print(candidate)
                 if spec in re.sub(r'\s', '', candidate):
-                    print("SPEC MATCH!")
                     uncovered_spec.remove(spec)
                 else:
                     break
@@ -180,8 +171,6 @@ def can_be_solution(msg: str, formal_spec: List[str]) -> (bool, str):
             else:
                 pass # otherwise this does not count as a potential solution
     if len(solutions) > 0:
-        print("THE NUMBER OF SOLUTIONS")
-        print(len(solutions))
         return True, solutions[0]
     return False, ""
         
