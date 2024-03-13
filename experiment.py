@@ -21,7 +21,7 @@ def main(mins_timeout = 10):
 
     count = 0
     total = 0
-    for (method_name, prompt) in dfy_annotation_iterator():
+    for (method_name, prompt, formal_spec) in example_iterator():
         print(method_name)
         # check if prompt is in test or train set
         if TEST_PROMPTS and method_name not in TEST_PROMPTS:
@@ -34,7 +34,7 @@ def main(mins_timeout = 10):
 
         reset_cache()
         start_time = time.time()
-        cache = main_run(mins_timeout = mins_timeout, prompt = prompt)
+        cache = main_run(mins_timeout = mins_timeout, prompt = prompt, formal_spec = formal_spec)
         end_time = time.time()
 
         duration_sec = round(end_time - start_time)
