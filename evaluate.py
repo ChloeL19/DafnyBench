@@ -96,7 +96,8 @@ def calculateScore_whole(msg: str) -> Optional[float]:
         return None
 
 def calculateScoreHelper_whole(msg: str) -> (Optional[float], Optional[str]):
-    v = [s.strip() for s in filterDafny_whole(msg + "```")]
+    v = [s.strip() for s in filterDafny_whole(msg + "```")][1:] # assume invariant that first code chunk is always part of prompt
+    err = "Probably a timeout"
     for vs in v:
         if vs == "":
             return None, None
@@ -150,7 +151,7 @@ def can_be_solution(msg: str, formal_spec: List[str]) -> (bool, str):
     Checks if the parts of the model's response that compile account for the full original 
     formal specification.
     '''
-    candidates = [s.strip() for s in filterDafny_whole(msg + "```")+[filterDafny(msg + "```")]]
+    candidates = [s.strip() for s in filterDafny_whole(msg + "```")+[filterDafny(msg + "```")]][1:] # assume first code chunk part of prompt
     solutions = []
     formal_spec = [re.sub(r'\s', '', s) for s in formal_spec]
     for candidate in candidates:
