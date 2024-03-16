@@ -1,4 +1,4 @@
-TEST_PROMPTS = ["MakePalindrome"]
+TEST_PROMPTS = None
 TRAIN_PROMPTS = None
 TASK = "fill_body"
 VERBOSITY = True
