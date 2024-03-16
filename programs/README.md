@@ -6,6 +6,5 @@ Each program in this list represents one way the formal specification and docstr
 - the number of lemmas required to verify the implementation
 - domain of the method that is implemented (i.e. does it operate on floats, strings, or objects more generally?)
 - the source from which the problem framing originated (we adopt many problems from pre-existing python benchmarks)
-- whether or not the program implementation can verify on its own without compiler hints (useful for understanding baselines on the `fill_annotations` task)
 
 We plan to provide scripts for filtering the Dafny programs and benchmark tasks based on these characeristics. Hopefully this will help researchers better target specific model capabilities that they want to test with this benchmark.
