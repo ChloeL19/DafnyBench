@@ -17,5 +17,11 @@ Within the DafnyBench directory, modify the appropriate fields of the `config.py
 
 Then run `run_eval.sh` to launch a bash script that will print the number of your solution files that meet our benchmark acceptance criteria.
 
+## Data Contamination Precautions
+
+We list the sources of each of our benchmark files in `characteristics.csv`. When training models for this benchmark, please take care to exclude or erase these files from your training data.
+
+Program files that do not have a full url under the `source` field of the `characteristics.csv` file were handcrafted, and can be ignored for these purposes.
+
 ## Call for Contributions
 
